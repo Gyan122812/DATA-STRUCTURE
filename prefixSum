@@ -1,0 +1,48 @@
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        
+        System.out.println("Enter Number of elements: ");
+        int N = sc.nextInt();
+        int[] arr = new int[N];
+        
+        System.out.println("Enter " + N + " elements: ");
+        for(int i = 0; i< N;i++)
+        {
+            arr[i] = sc.nextInt();
+        }
+        
+        
+        // prefixSum
+        
+        int[] prefix = new int[N];
+        prefix[0] = arr[0];
+         for(int i = 1; i< N ; i++)
+         {
+             prefix[i]= prefix[i-1]+arr[i];
+         }
+         
+        System.out.println("Enter number of quaries: ");
+        int Q = sc.nextInt();
+        
+        System.out.println("Enter " + Q + " queries (L R): ");
+        for(int i =0;i<Q;i++)
+        {
+            int L =  sc.nextInt();
+            int R =  sc.nextInt();
+        
+        
+         int sum;
+         if(L==0){
+             sum = prefix[R];
+         }
+         else{
+             sum= prefix[R]-prefix[L-1];
+         }
+         
+         System.out.println("sum form "+ L + " to "+ R + " = " + sum);
+        }
+        sc.close();
+    }
+}
