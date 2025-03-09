@@ -5,12 +5,12 @@ def find_triplet(arr, target):
         left, right = i + 1, len(arr) - 1
         
         while left < right:
-            total = arr[i] + arr[left] + arr[right]
+            sum = arr[i] + arr[left] + arr[right]
             
-            if total == target:
+            if sum == target:
                 print(f"Triplet found: {arr[i]}, {arr[left]}, {arr[right]}")
                 return True
-            elif total < target:
+            elif sum < target:
                 left += 1
             else:
                 right -= 1
