@@ -1,0 +1,22 @@
+def find_triplet(arr, target):
+    arr.sort()  
+    
+    for i in range(len(arr) - 2):
+        for j in range(i + 1, len(arr) - 1):
+            for k in range(j + 1, len(arr)):            
+                if arr[i] + arr[j] + arr[k] == target:
+                    print(f"Triplet found: {arr[i]}, {arr[j]}, {arr[k]}")
+                    return True 
+                elif arr[i] + arr[j] + arr[k] > target:
+                    break       
+                else:
+                    continue
+    print("No triplet found")
+    return False
+# Test the function
+arr = [12, 3, 4, 1, 6, 9]
+target = 24
+find_triplet(arr, target)
+
+        
+
