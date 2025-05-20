@@ -31,3 +31,18 @@ print(SplitArray(arr))
 #    return False
 
     
+# array can be splited or not
+def can_be_split(arr):
+    total_sum = sum(arr)
+    left_sum = 0
+    
+    for i in range(len(arr)):
+        left_sum += arr[i]
+        
+        if left_sum * 2 == total_sum:
+            return True
+    return False
+
+# Example
+arr = [1, 2, 3, 3,1, 2]
+print("Can be split into two parts:", can_be_split(arr))
